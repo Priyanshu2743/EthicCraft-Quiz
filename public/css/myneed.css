@@ -1,0 +1,24 @@
+.hero-wrap {
+    width: 100%;
+    min-height: 210px;
+    position: inherit;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    border-radius: 10px;
+    z-index: 0;
+}
+.glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    min-height: 100%;
+    background: rgb(255, 255, 255, 0.3);
+}
+@media (min-width :420px){
+    .hero-wrap{
+        height: calc(100% - 91);
+    }
+}
+
+

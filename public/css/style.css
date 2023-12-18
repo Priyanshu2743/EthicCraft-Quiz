@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
+}
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #BE9F69;
+  padding: 30px;
+}
+.container{
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  border-radius: 15px;
+  padding: 40px 30px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  perspective: 2700px;
+}
+.container .forms{
+  height: 100%;
+  width: 100%;
+}
+.container .form-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-content .login-form{
+  width: calc(100% / 2 - 25px);
+}
+.forms .form-content .title{
+  position: relative;
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 10px;
+}
+.forms .form-content .title:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 25px;
+  background: #79493a;
+}
+.forms .title:before{
+  width: 20px;
+}
+.forms .form-content .input-boxes{
+  margin-top: 20px;
+}
+.forms .form-content .input-box{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+}
+.form-content .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.forms .form-content .text{
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.forms .form-content .text a{
+  text-decoration: none;
+}
+.forms .form-content .text a:hover{
+  text-decoration: underline;
+}
+.forms .form-content .button{
+  margin-top: 8px;
+}
+.forms .form-content .button input{
+  background: #a95d43;
+  color: aliceblue;
+  font-size: x-large;
+  border-radius: 15px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.forms .form-content .button input:hover{
+  background: #823a3a;
+  font-size: xx-large;
+}
+.forms .form-content .login-text{
+  text-align: center;
+  margin-top: 25px;
+}
+@media (max-width: 2000px) {     
+  .container .cover{
+    display: none;
+  }
+  .form-content .login-form,
+  .form-content {
+    width: 100%;
+  }
+  .form-content {
+    display: none;
+  }
+}

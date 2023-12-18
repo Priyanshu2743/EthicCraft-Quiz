@@ -1,0 +1,25 @@
+Flaws
+
+Image after 420 px width remain stuck at 210px
+Image dont get left side after 720px
+
+
+
+
+Background Dark Glaussy Finish
+Circle Layout 
+No Restart rollNumber as primary key
+header page
+landing page
+score card
+every question is required
+timer orange black layout 
+next orange layout
+database storage for rollnumber name etc.
+
+
+
+
+
+
+gmail templates chrome extension
