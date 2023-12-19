@@ -9,11 +9,55 @@ let restart = document.getElementById("restart");
 let userScore = document.getElementById("user-score");
 let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
+let startImage = document.getElementById("start-image");
 let questionCount;
 let scoreCount = 0;
-let count = 11;
+let count = 31;
 let countdown;
 
+// Function to display image for a specific duration
+function displayImageForDuration(duration) {
+    const startImage = document.getElementById("start-image");
+    startImage.style.display = "block"; // Show the image
+
+    setTimeout(() => {
+        startImage.style.display = "none"; // Hide the image after the duration
+        // Show the quiz content after hiding the image
+        document.getElementById("start-screen").classList.remove("hide");
+    }, duration);
+}
+
+// Call the function to display the image for 10 seconds (10000 milliseconds)
+displayImageForDuration(5000);
+
+document.addEventListener("DOMContentLoaded", function() {
+    const nameInput = document.getElementById('Name');
+    const rollNumberInput = document.getElementById('Rno');
+    const genderInput = document.getElementById('Gender');
+    const BranchYearInput = document.getElementById('BranchYear');
+    const MobileNumberInput = document.getElementById('MobileNumber');
+  
+    function checkInputs() {
+      const nameValue = nameInput.value.trim();
+      const rollNumberValue = rollNumberInput.value.trim();
+      const genderValue = genderInput.value.trim();
+      const BranchYearValue = BranchYearInput.value.trim();
+      const MobileNumberValue = MobileNumberInput.value.trim();
+  
+      if (nameValue !== '' && rollNumberValue !== '' && genderValue !== '' && BranchYearValue !== '' && MobileNumberValue !== '') {
+        startButton.disabled = false;
+      } else {
+        startButton.disabled = true;
+      }
+    }
+  
+    nameInput.addEventListener('input', checkInputs);
+    rollNumberInput.addEventListener('input', checkInputs);
+    genderInput.addEventListener('input', checkInputs);
+    BranchYearInput.addEventListener('input', checkInputs);
+    MobileNumberInput.addEventListener('input', checkInputs);
+});
+  
 //when user click on start button
 startButton.addEventListener("click", () => {
     startScreen.classList.add("hide");
@@ -88,15 +132,7 @@ function checker(userOption) {
     } 
     if (userSolution !== ""){
         nextBtn.disabled = false;
-        // //For marking the correct option
-        // options.forEach((element) => {
-        //     if (element.innerText == quizArray[questionCount].correct) {
-        //         element.classList.add("selected");
-        //     }
-        // });
     }
-    // //clear interval(stop timer)
-    // clearInterval(countdown);
     //disable all options
     options.forEach((element) => {
         element.disabled = true;
@@ -133,12 +169,17 @@ nextBtn.addEventListener("click", (displayNext = () => {
             questionCount + 1 + " of " + quizArray.length + " Question";
         //display quiz
         quizDisplay(questionCount);
-        count = 11;
+        count = 31;
         clearInterval(countdown);
         timerDisplay();
     }
 }));
 
+// Display the image for 15 seconds when the window loads
+window.onload = () => {
+    displayImageFor15Seconds();
+};
+  
 //hide quiz and display start screen
 window.onload = () => {
     startScreen.classList.remove("hide");
