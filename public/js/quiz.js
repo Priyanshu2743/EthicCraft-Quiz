@@ -11,58 +11,102 @@ let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
 let startImage = document.getElementById("start-image");
 let questionCount;
+let totalQuestions = 20;
 let scoreCount = 0;
 let count = 31;
 let countdown;
 
+// Change source of image when device is mobile
+if (window.innerWidth <= 768) {
+    startImage.src = "./images/Standee-min.jpg";
+}
+
 // Function to display image for a specific duration
 function displayImageForDuration(duration) {
     const startImage = document.getElementById("start-image");
+    const landingPage = document.getElementsByClassName("landingpage")[0];
     startImage.style.display = "block"; // Show the image
 
     setTimeout(() => {
         startImage.style.display = "none"; // Hide the image after the duration
+        landingPage.style.display = "none";
         // Show the quiz content after hiding the image
         document.getElementById("start-screen").classList.remove("hide");
     }, duration);
 }
 
 // Call the function to display the image for 10 seconds (10000 milliseconds)
-displayImageForDuration(5000);
+displayImageForDuration(1000);
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const nameInput = document.getElementById('Name');
     const rollNumberInput = document.getElementById('Rno');
     const genderInput = document.getElementById('Gender');
     const BranchYearInput = document.getElementById('BranchYear');
     const MobileNumberInput = document.getElementById('MobileNumber');
-  
+
     function checkInputs() {
-      const nameValue = nameInput.value.trim();
-      const rollNumberValue = rollNumberInput.value.trim();
-      const genderValue = genderInput.value.trim();
-      const BranchYearValue = BranchYearInput.value.trim();
-      const MobileNumberValue = MobileNumberInput.value.trim();
-  
-      if (nameValue !== '' && rollNumberValue !== '' && genderValue !== '' && BranchYearValue !== '' && MobileNumberValue !== '') {
-        startButton.disabled = false;
-      } else {
-        startButton.disabled = true;
-      }
+        const nameValue = nameInput.value.trim();
+        const rollNumberValue = rollNumberInput.value.trim();
+        const genderValue = genderInput.value.trim();
+        const BranchYearValue = BranchYearInput.value.trim();
+        const MobileNumberValue = MobileNumberInput.value.trim();
+
+        if (nameValue !== '' && rollNumberValue !== '' && genderValue !== '' && BranchYearValue !== '' && MobileNumberValue !== '' && MobileNumberValue.length == 10) {
+            startButton.disabled = false;
+        } else {
+            startButton.disabled = true;
+        }
     }
-  
+
     nameInput.addEventListener('input', checkInputs);
     rollNumberInput.addEventListener('input', checkInputs);
     genderInput.addEventListener('input', checkInputs);
     BranchYearInput.addEventListener('input', checkInputs);
     MobileNumberInput.addEventListener('input', checkInputs);
 });
-  
+
 //when user click on start button
-startButton.addEventListener("click", () => {
-    startScreen.classList.add("hide");
-    displayContainer.classList.remove("hide");
-    initial();
+startButton.addEventListener("click", async () => {
+    const userdata = {
+        Name: document.getElementById('Name').value.trim(),
+        RollNumber: document.getElementById('Rno').value.trim(),
+        BranchYear: document.getElementById('BranchYear').value.trim(),
+        Gender: document.getElementById('Gender').value.trim(),
+        MobileNumber: document.getElementById('MobileNumber').value.trim()
+    }
+    await fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userdata)
+    })
+        .then(response => {
+            if (response.status === 400) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Thank You',
+                    text: 'You have already submitted the Quiz',
+                })
+                console.log("You have already submitted the Quiz");
+            }
+            else {
+                console.log("You have not submitted the Quiz");
+                startScreen.classList.add("hide");
+                displayContainer.classList.remove("hide");
+                initial();
+            }
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+
 });
 
 //Timer
@@ -95,13 +139,12 @@ function quizCreator() {
     quizArray.sort(() => Math.random() - 0.5);
     //generate quiz
     for (let i of quizArray) {
-        //randomly sort options
-        i.options.sort(() => Math.random() - 0.5);
+
         //quiz card creation
         let div = document.createElement("div");
         div.classList.add("container-mid", "hide");
         //question number
-        countOfQuestion.innerHTML = 1 + " of " + quizArray.length + " Question";
+        countOfQuestion.innerHTML = 1 + " of " + totalQuestions + " Question";
         //question
         let question_DIV = document.createElement("p");
         question_DIV.classList.add("question");
@@ -129,8 +172,8 @@ function checker(userOption) {
     //if user clicked answer == correct option stored in object
     if (userSolution === quizArray[questionCount].correct) {
         scoreCount++;
-    } 
-    if (userSolution !== ""){
+    }
+    if (userSolution !== "") {
         nextBtn.disabled = false;
     }
     //disable all options
@@ -144,7 +187,7 @@ function initial() {
     quizContainer.innerHTML = "";
     questionCount = 0;
     scoreCount = 0;
-    count = 11;
+    count = 31;
     clearInterval(countdown);
     timerDisplay();
     quizCreator();
@@ -154,34 +197,61 @@ function initial() {
 //Next Button
 nextBtn.addEventListener("click", (displayNext = () => {
     //increment questionCount
-    questionCount += 1;        
+    questionCount += 1;
     //if last question
-    if (questionCount == quizArray.length) {
+    if (questionCount == totalQuestions) {
         //hide question container and display score
         displayContainer.classList.add("hide");
         scoreContainer.classList.remove("hide");
         //user score
         userScore.innerHTML =
             "Your score is " + scoreCount + " out of " + questionCount;
-    }else {
+
+        // progress bar
+        let progress = document.getElementsByClassName("progress")[0];
+        progress.style.width = scoreCount / totalQuestions * 100 + "%";
+
+    } else {
         //display questionCount
         countOfQuestion.innerHTML =
-            questionCount + 1 + " of " + quizArray.length + " Question";
+            questionCount + 1 + " of " + totalQuestions + " Question";
         //display quiz
         quizDisplay(questionCount);
         count = 31;
         clearInterval(countdown);
         timerDisplay();
     }
+    //update score in database
+    const userdata = {
+        RollNumber: document.getElementById('Rno').value.trim(),
+        Currcount: questionCount,
+        Score: scoreCount
+    }
+    fetch('/update', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify(userdata)
+    })
+        .then(response => {
+            console.log(response);
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
 }));
 
-// Display the image for 15 seconds when the window loads
-window.onload = () => {
-    displayImageFor15Seconds();
-};
-  
-//hide quiz and display start screen
-window.onload = () => {
-    startScreen.classList.remove("hide");
-    displayContainer.classList.add("hide");
-};
+
+Swal.fire({
+    title: "<i>Please Read Carefully</i>",
+    html: "1. There will be 20 questions.<br>2. Each question will have 4 options.<br>3. You have 30 seconds to answer each question.<br>4. After submitting please join the whatsapp group!<br>5. <b>Do not refresh the page</b>",
+    confirmButtonText: "<u>Done</u>",
+    confirmButtonColor: "#00b300",
+    allowOutsideClick: false,
+});

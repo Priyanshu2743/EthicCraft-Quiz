@@ -1,0 +1,10 @@
+# Ignore build output files
+build/
+dist/
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+
+# Ignore dependencies
+node_modules/
