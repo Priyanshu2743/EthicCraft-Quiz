@@ -1,130 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
 
-    <!-- Fontawesome CDN Link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF62"
-      crossorigin="anonymous"
-    />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/myneed.css" />
-    <link rel="stylesheet" href="css/quiz.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-      /* Custom styles */
-      /* ... Your existing CSS here ... */
-    </style>
-  </head>
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF621/MV7K8+y+gLBOVD59lQIYicR65iaqukzvf/nwasF62"
+    crossorigin="anonymous" />
 
-  <body style="background-image: url('images/bg.png')">
-    <!-- Bootstrap container for better layout control -->
-    <nav class=".nav-bar">
-      <div class="nav-logo">
-        <p>Ethiccraft</p>
-      </div>
-    </nav>
+  <link rel="stylesheet" href="css/myneed.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Custom styles */
+    /* ... Your existing CSS here ... */
+  </style>
+</head>
 
-    <div class="container-fluid">
-      <div class="landingpage">
-        <img
-          id="start-image"
-          src="images/loader-img.png"
-          style="display: none"
-        />
-      </div>
-      <div class="container glass start-screen">
-        <div
-          class="header-wrap"
-          style="background-image: url('images/header-bg-jayanti.jpg')"
-        ></div>
-        <!-- Bootstrap grid layout -->
-        <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <!-- Adjust column width as needed -->
-            <div class="forms">
-              <div class="form-content">
-                <div class="login-form">
-                  <div class="title" style="margin-bottom: 10px">
-                    Register Here
-                  </div>
-                  <!-- Bootstrap form components -->
-                  <div class="mb-3">
-                    <input
-                      id="Name"
-                      type="text"
-                      class="form-control"
-                      placeholder="Name"
-                      name="Name"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      id="Rno"
-                      type="number"
-                      class="form-control"
-                      placeholder="Roll Number"
-                      name="RollNumber"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      id="BranchYear"
-                      type="text"
-                      class="form-control"
-                      placeholder="Branch & Year"
-                      name="BranchYear"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <select
-                      id="Gender"
-                      name="Gender"
-                      class="form-control"
-                      placeholder="Gender"
-                    >
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      id="MobileNumber"
-                      type="number"
-                      class="form-control"
-                      placeholder="Mobile Number"
-                      name="MobileNumber"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      id="start-button"
-                      type="submit"
-                      class="btn btn-primary"
-                      value="Start Now!"
-                      disabled
-                    />
-                  </div>
+<body style="background-image: url('images/bg.png')">
+  <!-- Bootstrap container for better layout control -->
+  <nav class=".nav-bar">
+    <div class="nav-logo">
+      <p>Ethiccraft</p>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="landingpage">
+      <img id="start-image" style="display: none" />
+    </div>
+    <div class="container glass start-screen">
+      <div class="header-wrap" style="background-image: url('images/header-bg-jayanti.jpg')"></div>
+      <!-- Bootstrap grid layout -->
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <!-- Adjust column width as needed -->
+          <div class="forms">
+            <div class="form-content">
+              <div class="login-form">
+                <div class="title" style="margin-bottom: 10px">
+                  Register Here
+                </div>
+                <!-- Bootstrap form components -->
+                <div class="mb-3">
+                  <input id="Name" type="text" class="form-control" placeholder="Name" name="Name" required />
+                </div>
+                <div class="mb-3">
+                  <input id="Rno" type="number" class="form-control" placeholder="Roll Number" name="RollNumber"
+                    required />
+                </div>
+                <div class="mb-3" style="display: flex;gap: 10px;">
+                  <select id="Branch" type="text" class="form-control" placeholder="Branch" name="Branch" style="width: 70%;" required>
+                    <option value="Branch">Select Branch</option>
+                    <option value="CSDS">CSDS</option>
+                    <option value="CSE">CSE</option>
+                    <option value="IT">IT</option>
+                    <option value="IOT">IOT</option>
+                    <option value="ME">ME</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="EIC">EIC</option>
+                    <option value="ECE">ECE</option>
+                    <option value="Management">Management</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Maths">Maths</option>
+                    <option value="ECS">ECS</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="R&AI">R&AI</option>
+                    <option value="Animation and Multimedia">Animation and Multimedia</option>
+                    <option value="HRM">HRM</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <select id="Year" type="text" class="form-control" placeholder="Year" name="Year" style="width: 25%;" required>
+                    <option value="Year">Year</option>
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <select id="Gender" name="Gender" class="form-control" placeholder="Gender">
+                    <option value="Gender">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <input id="MobileNumber" type="number" class="form-control" placeholder="Mobile Number"
+                    name="MobileNumber" required />
+                </div>
+                <div class="mb-3">
+                  <input id="start-button" type="submit" class="btn btn-primary" value="Start Now!" disabled />
                 </div>
               </div>
             </div>
@@ -132,53 +108,54 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="display-container" class="hide">
-      <div class="header">
-        <div class="number-of-count">
-          <span class="number-of-question">1 of 3 questions</span>
-        </div>
-        <div class="timer-div">
-          <img
-            src="https://uxwing.com/wp-content/themes/uxwing/download/time-and-date/stopwatch-icon.png"
-            width="20px"
-          />
-          <span class="time-left">10s</span>
-        </div>
+  <div id="display-container" class="hide">
+    <div class="header">
+      <div class="number-of-count">
+        <span class="number-of-question">1 of 3 questions</span>
       </div>
-      <div id="ques-container">
-        <!-- questions and options will be displayed here -->
+      <div class="timer-div">
+        <img src="https://uxwing.com/wp-content/themes/uxwing/download/time-and-date/stopwatch-icon.png" width="20px" />
+        <span class="time-left">10s</span>
       </div>
-      <button id="next-button">Next</button>
     </div>
-
-    <div class="score-container hide">
-      <p>THANK YOU!</p>
-      <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
-      <div id="user-score">You scored 10 of 20 Question</div>
-      <div class="progress-bar">
-        <div class="progress" style="width: 66.6%"></div>
-      </div>
-      <div style="font-weight: bold;">Join WhatsApp chat for further updates !!</div>
-        <div class="social-media">
-          <a href="https://www.instagram.com/ethiccraft_ymca/"
-            ><i class="fab fa-instagram fa-3x" style="color: rgb(212, 43, 212);"></i
-          ></a>
-          <a href="https://www.youtube.com/@ethiccraftclub9286"
-            ><i class="fab fa-youtube fa-3x" style="color: red;"></i
-          ></a>
-          <a href="https://chat.whatsapp.com/KRjUaGoQXAsJybKFBg2HHU"
-            ><i class="fab fa-whatsapp fa-3x" style="color:green;"></i
-          ></a>
-        </div>
+    <div id="ques-container">
+      <!-- questions and options will be displayed here -->
     </div>
+    <button id="next-button">Next</button>
+  </div>
 
-    <!-- Rest of your HTML content remains unchanged -->
+  <div class="score-container hide">
+    <p>THANK YOU!</p>
+    <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" viewBox="0 0 512 512">
+      <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+      <path
+        d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+    </svg>
+    <div id="user-score">You scored 10 of 20 Question</div>
+    <div class="progress-bar">
+      <div class="progress" style="width: 66.6%"></div>
+    </div>
+    <div style="font-weight: bold">
+      Join WhatsApp chat for further updates !!
+    </div>
+    <div class="social-media">
+      <a href="https://www.instagram.com/ethiccraft_ymca/"><i class="fab fa-instagram fa-3x"
+          style="color: rgb(212, 43, 212)"></i></a>
+      <a href="https://www.youtube.com/@ethiccraftclub9286"><i class="fab fa-youtube fa-3x" style="color: red"></i></a>
+      <a href="https://chat.whatsapp.com/KRjUaGoQXAsJybKFBg2HHU"><i class="fab fa-whatsapp fa-3x"
+          style="color: green"></i></a>
+    </div>
+  </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/quiz.js"></script>
-    <script src="js/quizArray.js"></script>
-  </body>
+  <!-- Rest of your HTML content remains unchanged -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/quizArray.js"></script>
+</body>
+
 </html>

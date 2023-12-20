@@ -16,10 +16,6 @@ let scoreCount = 0;
 let count = 31;
 let countdown;
 
-// Change source of image when device is mobile
-if (window.innerWidth <= 768) {
-    startImage.src = "./images/Standee-min.jpg";
-}
 
 // Function to display image for a specific duration
 function displayImageForDuration(duration) {
@@ -36,23 +32,25 @@ function displayImageForDuration(duration) {
 }
 
 // Call the function to display the image for 10 seconds (10000 milliseconds)
-displayImageForDuration(1000);
+displayImageForDuration(3000);
 
 document.addEventListener("DOMContentLoaded", function () {
     const nameInput = document.getElementById('Name');
     const rollNumberInput = document.getElementById('Rno');
     const genderInput = document.getElementById('Gender');
-    const BranchYearInput = document.getElementById('BranchYear');
+    const branch = document.getElementById('Branch');
+    const year = document.getElementById('Year');
     const MobileNumberInput = document.getElementById('MobileNumber');
 
     function checkInputs() {
         const nameValue = nameInput.value.trim();
         const rollNumberValue = rollNumberInput.value.trim();
         const genderValue = genderInput.value.trim();
-        const BranchYearValue = BranchYearInput.value.trim();
+        const BranchValue = branch.value.trim();
+        const YearValue = year.value.trim();
         const MobileNumberValue = MobileNumberInput.value.trim();
 
-        if (nameValue !== '' && rollNumberValue !== '' && genderValue !== '' && BranchYearValue !== '' && MobileNumberValue !== '' && MobileNumberValue.length == 10) {
+        if (nameValue !== '' && rollNumberValue !== '' && genderValue !== 'Gender' && BranchValue !== 'Branch' && YearValue !== 'Year' && MobileNumberValue !== '' && MobileNumberValue.length == 10 && rollNumberValue.length == 11) {
             startButton.disabled = false;
         } else {
             startButton.disabled = true;
@@ -62,7 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
     nameInput.addEventListener('input', checkInputs);
     rollNumberInput.addEventListener('input', checkInputs);
     genderInput.addEventListener('input', checkInputs);
-    BranchYearInput.addEventListener('input', checkInputs);
+    branch.addEventListener('input', checkInputs);
+    year.addEventListener('input', checkInputs);
     MobileNumberInput.addEventListener('input', checkInputs);
 });
 
@@ -71,10 +70,11 @@ startButton.addEventListener("click", async () => {
     const userdata = {
         Name: document.getElementById('Name').value.trim(),
         RollNumber: document.getElementById('Rno').value.trim(),
-        BranchYear: document.getElementById('BranchYear').value.trim(),
+        BranchYear: document.getElementById('Branch').value.trim() + " " + document.getElementById('Year').value.trim(),
         Gender: document.getElementById('Gender').value.trim(),
         MobileNumber: document.getElementById('MobileNumber').value.trim()
     }
+    console.log(userdata);
     await fetch('/login', {
         method: 'POST',
         headers: {
@@ -163,23 +163,19 @@ function quizCreator() {
 //Checker Function to check if option is correct or not
 function checker(userOption) {
 
-    let userSolution = userOption.innerText;
+
     let question =
         document.getElementsByClassName("container-mid")[questionCount];
     let options = question.querySelectorAll(".option-div");
-
+    //remove selected class from all options
+    options.forEach((element) => {
+        element.classList.remove("selected");
+    });
     userOption.classList.add("selected");
     //if user clicked answer == correct option stored in object
-    if (userSolution === quizArray[questionCount].correct) {
-        scoreCount++;
-    }
-    if (userSolution !== "") {
-        nextBtn.disabled = false;
-    }
-    //disable all options
-    options.forEach((element) => {
-        element.disabled = true;
-    });
+
+    nextBtn.disabled = false;
+
 }
 
 //initial setup
@@ -196,6 +192,21 @@ function initial() {
 
 //Next Button
 nextBtn.addEventListener("click", (displayNext = () => {
+    //get user selected option
+    let question =
+        document.getElementsByClassName("container-mid")[questionCount];
+    let options = question.querySelectorAll(".option-div");
+    let userSolution = "";
+    options.forEach((element) => {
+        if (element.classList.contains("selected")) {
+            userSolution = element.innerHTML;
+        }
+    });
+
+    if (userSolution === quizArray[questionCount].correct) {
+        scoreCount++;
+    }
+
     //increment questionCount
     questionCount += 1;
     //if last question
