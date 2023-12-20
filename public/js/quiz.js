@@ -32,7 +32,7 @@ function displayImageForDuration(duration) {
 }
 
 // Call the function to display the image for 10 seconds (10000 milliseconds)
-// displayImageForDuration(3000);
+displayImageForDuration(3000);
 
 document.addEventListener("DOMContentLoaded", function () {
     const nameInput = document.getElementById('Name');
