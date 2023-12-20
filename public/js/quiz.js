@@ -32,7 +32,7 @@ function displayImageForDuration(duration) {
 }
 
 // Call the function to display the image for 10 seconds (10000 milliseconds)
-displayImageForDuration(3000);
+// displayImageForDuration(3000);
 
 document.addEventListener("DOMContentLoaded", function () {
     const nameInput = document.getElementById('Name');
@@ -88,7 +88,7 @@ startButton.addEventListener("click", async () => {
                 Swal.fire({
                     icon: 'info',
                     title: 'Thank You',
-                    text: 'You have already submitted the Quiz',
+                    html:`Already submitted quiz! <div style="width:100%;display:flex;align-items:center;justify-content:space-evenly;"> Follow for results  <a href="https://www.instagram.com/ethiccraft_ymca/"><i class="fab fa-instagram fa-3x" style="color: rgb(212, 43, 212)"></i></a> <a href="https://chat.whatsapp.com/KRjUaGoQXAsJybKFBg2HHU"><i class="fab fa-whatsapp fa-3x" style="color: green"></i></a> </div>` ,
                 })
                 console.log("You have already submitted the Quiz");
             }
