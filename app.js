@@ -37,7 +37,7 @@ const User = mongoose.model('User', ParticipantSchema);
 app.post('/login', (req, res) => {
     const {Name, RollNumber, BranchYear, Gender, MobileNumber} = req.body;
     
-    console.log(req.body)
+    // console.log(req.body)
     // Check if the email is already registered
     User.findOne({RollNumber: RollNumber}).then(existingUser => {
         if (existingUser) {
