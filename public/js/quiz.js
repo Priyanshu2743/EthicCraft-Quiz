@@ -258,11 +258,12 @@ nextBtn.addEventListener("click", (displayNext = () => {
         });
 }));
 
-
-Swal.fire({
+window.addEventListener("load", (event) => {
+    Swal.fire({
     title: "<i>Please Read Carefully</i>",
     html: "1. There will be 20 questions.<br>2. Each question will have 4 options.<br>3. You have 30 seconds to answer each question.<br>4. After submitting please join the whatsapp group!<br>5. <b>Do not refresh the page</b>",
     confirmButtonText: "<u>Done</u>",
     confirmButtonColor: "#00b300",
     allowOutsideClick: false,
+});
 });
