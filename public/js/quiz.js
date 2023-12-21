@@ -27,7 +27,7 @@ function displayImageForDuration(duration) {
         startImage.style.display = "none"; // Hide the image after the duration
         landingPage.style.display = "none";
         // Show the quiz content after hiding the image
-        document.getElementById("start-screen").classList.remove("hide");
+        startScreen.classList.remove("hide");
     }, duration);
 }
 
