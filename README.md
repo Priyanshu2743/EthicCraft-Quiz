@@ -17,3 +17,8 @@ Score will be displayed after attempting all the questions.
 Quiz has time fixed for opening and closing of the quiz.
  
 ## Install deps: npm install
+
+### ScreenShots
+
+![image](https://github.com/Priyanshu2743/EthicCraft-Quiz/assets/124867297/8d15a535-c10d-4de3-a0c6-1a4ca00c8130)
+
