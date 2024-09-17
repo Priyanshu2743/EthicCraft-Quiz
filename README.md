@@ -4,8 +4,7 @@ This is an online quiz organizing website project, developed using JavaScript.
 For front-end designing I have used HTML,CSS,JS.
 For back-end designing I have used Node-JS, Express-JS.
 
-## See live at https://gita-quiz.onrender.com/
-
+### See live at https://gita-quiz.onrender.com/
 
 ## Current Features -: 
 
@@ -16,9 +15,13 @@ Questions are displayed randomly for every user.
 Score will be displayed after attempting all the questions.
 Quiz has time fixed for opening and closing of the quiz.
  
-## Install deps: npm install
+## Install deps: 
+1. Run "npm install" in terminal
 
-### ScreenShots
+## For Opening the Quiz:
+1. Run "node app.js" in terminal for starting the server 
+2. Open Quiz.html
 
+## ScreenShots
 ![image](https://github.com/Priyanshu2743/EthicCraft-Quiz/assets/124867297/8d15a535-c10d-4de3-a0c6-1a4ca00c8130)
 
